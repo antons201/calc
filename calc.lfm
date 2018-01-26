@@ -1,13 +1,13 @@
 object FCalc: TFCalc
   Left = 241
-  Height = 266
+  Height = 294
   Top = 134
-  Width = 220
+  Width = 223
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Калькулятор'
-  ClientHeight = 266
-  ClientWidth = 220
+  ClientHeight = 294
+  ClientWidth = 223
   KeyPreview = True
   ParentBiDiMode = False
   LCLVersion = '1.6.4.0'
@@ -283,5 +283,23 @@ object FCalc: TFCalc
     Caption = 'M-'
     OnClick = MemMiClick
     TabOrder = 28
+  end
+  object Sqare: TButton
+    Left = 16
+    Height = 32
+    Top = 256
+    Width = 96
+    Caption = 'x^2'
+    OnClick = SqareClick
+    TabOrder = 29
+  end
+  object power_number: TButton
+    Left = 113
+    Height = 30
+    Top = 256
+    Width = 98
+    Caption = 'x^x'
+    OnClick = power_numberClick
+    TabOrder = 30
   end
 end
