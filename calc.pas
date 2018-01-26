@@ -486,6 +486,8 @@ begin
   if zn = 0 then
   begin
     a := StrToFloat(Pole.Text);
+    if StrToFloat(Pole.Text)<=100000000000000 then
+  begin
     if zn2 = 1 then
       rez := a + b;
     if zn2 = 2 then
@@ -495,7 +497,13 @@ begin
     if zn2 = 4 then
       rez := a / b;
     Pole.Text := FloatToStr(rez);
-  end;
+    end
+    else
+    begin
+    lockKeys();
+    per:=1;
+    end;
+    end;
   if zn > 0 then
   begin
     b := StrToFloat(Pole.Text);
