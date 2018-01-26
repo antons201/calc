@@ -1,0 +1,287 @@
+object FCalc: TFCalc
+  Left = 241
+  Height = 266
+  Top = 134
+  Width = 220
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'Калькулятор'
+  ClientHeight = 266
+  ClientWidth = 220
+  KeyPreview = True
+  ParentBiDiMode = False
+  LCLVersion = '1.6.4.0'
+  object Pole: TEdit
+    Left = 16
+    Height = 27
+    Top = 24
+    Width = 195
+    Alignment = taRightJustify
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -17
+    Font.Name = 'Times New Roman'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    MaxLength = 23
+    ParentBidiMode = False
+    OnChange = PoleChange
+    OnKeyPress = PoleKeyPress
+    ParentFont = False
+    TabOrder = 0
+    Text = '0'
+  end
+  object Num1: TButton
+    Left = 16
+    Height = 29
+    Top = 192
+    Width = 35
+    Caption = '1'
+    OnClick = NumClick
+    TabOrder = 1
+  end
+  object Num2: TButton
+    Left = 56
+    Height = 29
+    Top = 192
+    Width = 35
+    Caption = '2'
+    OnClick = NumClick
+    TabOrder = 2
+  end
+  object Num3: TButton
+    Left = 96
+    Height = 29
+    Top = 192
+    Width = 35
+    Caption = '3'
+    OnClick = NumClick
+    TabOrder = 3
+  end
+  object Num4: TButton
+    Left = 16
+    Height = 29
+    Top = 160
+    Width = 35
+    Caption = '4'
+    OnClick = NumClick
+    TabOrder = 4
+  end
+  object Num5: TButton
+    Left = 56
+    Height = 29
+    Top = 160
+    Width = 35
+    Caption = '5'
+    OnClick = NumClick
+    TabOrder = 5
+  end
+  object Num6: TButton
+    Left = 96
+    Height = 29
+    Top = 160
+    Width = 35
+    Caption = '6'
+    OnClick = NumClick
+    TabOrder = 6
+  end
+  object Num7: TButton
+    Left = 16
+    Height = 29
+    Top = 128
+    Width = 35
+    Caption = '7'
+    OnClick = NumClick
+    TabOrder = 7
+  end
+  object Num8: TButton
+    Left = 56
+    Height = 29
+    Top = 128
+    Width = 35
+    Caption = '8'
+    OnClick = NumClick
+    TabOrder = 8
+  end
+  object Num9: TButton
+    Left = 96
+    Height = 29
+    Top = 128
+    Width = 35
+    Caption = '9'
+    OnClick = NumClick
+    TabOrder = 9
+  end
+  object MemC: TButton
+    Left = 16
+    Height = 29
+    Top = 64
+    Width = 35
+    Caption = 'MC'
+    OnClick = MemCClick
+    TabOrder = 10
+  end
+  object MemR: TButton
+    Left = 56
+    Height = 29
+    Top = 64
+    Width = 35
+    Caption = 'MR'
+    OnClick = MemRClick
+    TabOrder = 11
+  end
+  object Back: TButton
+    Left = 16
+    Height = 29
+    Top = 96
+    Width = 35
+    Caption = '←'
+    OnClick = BackClick
+    TabOrder = 12
+  end
+  object ClearE: TButton
+    Left = 56
+    Height = 29
+    Top = 96
+    Width = 35
+    Caption = 'CE'
+    OnClick = ClearEClick
+    TabOrder = 13
+  end
+  object Num0: TButton
+    Left = 16
+    Height = 29
+    Top = 223
+    Width = 75
+    Caption = '0'
+    OnClick = NumClick
+    TabOrder = 14
+  end
+  object point: TButton
+    Left = 96
+    Height = 29
+    Top = 223
+    Width = 35
+    Caption = '.'
+    OnClick = pointClick
+    TabOrder = 15
+  end
+  object Clear: TButton
+    Left = 96
+    Height = 29
+    Top = 96
+    Width = 35
+    Caption = 'C'
+    OnClick = ClearClick
+    TabOrder = 16
+  end
+  object Minus: TButton
+    Left = 136
+    Height = 29
+    Top = 192
+    Width = 35
+    Caption = '-'
+    OnClick = MinusClick
+    TabOrder = 17
+  end
+  object Plus: TButton
+    Left = 136
+    Height = 29
+    Top = 223
+    Width = 35
+    Caption = '+'
+    OnClick = PlusClick
+    OnKeyDown = PlusKeyDown
+    TabOrder = 18
+  end
+  object MemS: TButton
+    Left = 96
+    Height = 29
+    Top = 64
+    Width = 35
+    Caption = 'MS'
+    OnClick = MemSClick
+    TabOrder = 19
+  end
+  object multiply: TButton
+    Left = 136
+    Height = 29
+    Top = 160
+    Width = 35
+    Caption = '*'
+    OnClick = multiplyClick
+    TabOrder = 20
+  end
+  object Divizh: TButton
+    Left = 136
+    Height = 29
+    Top = 128
+    Width = 35
+    Caption = '/'
+    OnClick = DivizhClick
+    TabOrder = 21
+  end
+  object PlusMinus: TButton
+    Left = 136
+    Height = 29
+    Top = 96
+    Width = 35
+    Caption = '∓'
+    OnClick = PlusMinusClick
+    TabOrder = 22
+  end
+  object MemPl: TButton
+    Left = 136
+    Height = 29
+    Top = 64
+    Width = 35
+    Caption = 'M+'
+    OnClick = MemPlClick
+    TabOrder = 23
+  end
+  object Result: TButton
+    Left = 176
+    Height = 60
+    Top = 192
+    Width = 35
+    Caption = '='
+    OnClick = ResultClick
+    TabOrder = 24
+  end
+  object OneX: TButton
+    Left = 176
+    Height = 29
+    Top = 160
+    Width = 35
+    Caption = '1/x'
+    ParentBidiMode = False
+    OnClick = OneXClick
+    TabOrder = 25
+  end
+  object percent: TButton
+    Left = 176
+    Height = 29
+    Top = 128
+    Width = 35
+    Caption = '%'
+    OnClick = percentClick
+    TabOrder = 26
+  end
+  object root: TButton
+    Left = 176
+    Height = 29
+    Top = 96
+    Width = 35
+    Caption = '√'
+    OnClick = rootClick
+    TabOrder = 27
+  end
+  object MemMi: TButton
+    Left = 176
+    Height = 29
+    Top = 64
+    Width = 35
+    Caption = 'M-'
+    OnClick = MemMiClick
+    TabOrder = 28
+  end
+end
