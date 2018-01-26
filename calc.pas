@@ -13,6 +13,8 @@ type
   { TFCalc }
 
   TFCalc = class(TForm)
+    power_number: TButton;
+    Sqare: TButton;
     Num1: TButton;
     Pole: TEdit;
     MemC: TButton;
@@ -43,6 +45,7 @@ type
     Num8: TButton;
     Num9: TButton;
     procedure BackClick(Sender: TObject);
+    procedure power_numberClick(Sender: TObject);
     procedure ClearClick(Sender: TObject);
     procedure ClearEClick(Sender: TObject);
     procedure DivizhClick(Sender: TObject);
@@ -63,6 +66,7 @@ type
     procedure ResultClick(Sender: TObject);
     procedure rootClick(Sender: TObject);
     procedure pointClick(Sender: TObject);
+    procedure SqareClick(Sender: TObject);
     procedure unlockKeys();
     procedure lockKeys();
     procedure NumClick(Sender: TObject);
@@ -98,6 +102,9 @@ begin
   MemPl.Enabled := True;
   MemMi.Enabled := True;
   point.Enabled := True;
+  power_number.Enabled := True;
+  Sqare.Enabled := True;
+  result.Enabled := True;
 end;
 
 procedure TFCalc.lockKeys();
@@ -116,6 +123,9 @@ begin
   MemPl.Enabled := False;
   MemMi.Enabled := False;
   point.Enabled := False;
+  power_number.Enabled := False;
+  Sqare.Enabled := False;
+  result.Enabled := False;
 end;
 
 procedure TFCalc.NumClick(Sender: TObject);
@@ -139,6 +149,8 @@ begin
   if zn > 0 then
   begin
     b := StrToFloat(Pole.Text);
+    if StrToFloat(Pole.Text)<=100000000000000 then
+  begin
     if zn = 1 then
       rez := a + b;
     if zn = 2 then
@@ -149,6 +161,13 @@ begin
       if B <> 0 then
         rez := a / b;
     a := rez;
+    end else
+    begin
+  Pole.Text :='Переполнение';
+  lockkeys();
+  per:=1;
+  zn:=0;
+  end;
     if (b = 0) and (zn = 4) then
     begin
       Pole.Text := 'Деление на 0 невозможно';
@@ -175,6 +194,8 @@ begin
   if zn > 0 then
   begin
     b := StrToFloat(Pole.Text);
+    if StrToFloat(Pole.Text)<=100000000000000 then
+  begin
     if zn = 1 then
       rez := a + b;
     if zn = 2 then
@@ -185,6 +206,13 @@ begin
       if B <> 0 then
         rez := a / b;
     a := rez;
+    end else
+    begin
+  Pole.Text :='Переполнение';
+  lockkeys();
+  per:=1;
+  zn:=0;
+  end;
     zn := 4;
     if (b = 0) and (zn = 4) then
     begin
@@ -274,6 +302,21 @@ begin
     Pole.Text := FloatToStr(0);
 end;
 
+procedure TFCalc.power_numberClick(Sender: TObject);
+begin
+  if StrToFloat(Pole.Text)<=100 then
+  begin
+  Pole.Text := FloatToStr(exp(ln(StrToFloat(Pole.Text)) * StrToFloat(Pole.Text)));
+  per:=1;
+  end
+  else
+  begin
+  Pole.Text :='Переполнение';
+  lockkeys();
+  per:=1;
+  end;
+end;
+
 procedure TFCalc.ClearEClick(Sender: TObject);
 begin
   h := 0;
@@ -288,6 +331,8 @@ begin
   if zn > 0 then
   begin
     b := StrToFloat(Pole.Text);
+    if StrToFloat(Pole.Text)<=100000000000000 then
+  begin
     if zn = 1 then
       rez := a + b;
     if zn = 2 then
@@ -298,6 +343,13 @@ begin
       if B <> 0 then
         rez := a / b;
     a := rez;
+    end else
+    begin
+  Pole.Text :='Переполнение';
+  lockkeys();
+  per:=1;
+  zn:=0;
+  end;
     if (b = 0) and (zn = 4) then
     begin
       Pole.Text := 'Деление на 0 невозможно';
@@ -320,8 +372,10 @@ end;
 
 procedure TFCalc.OneXClick(Sender: TObject);
 begin
-  if StrToFloat(Pole.Text) <> 0 then
-    Pole.Text := FloatToStr(1 / StrToFloat(Pole.Text))
+  if StrToFloat(Pole.Text) <> 0 then begin
+    Pole.Text := FloatToStr(1 / StrToFloat(Pole.Text));
+    per := 1;
+  end
   else
   begin
     Pole.Text := 'Деление на 0 невозможно';
@@ -336,6 +390,8 @@ begin
   if zn > 0 then
   begin
     b := StrToFloat(Pole.Text);
+    if StrToFloat(Pole.Text)<=100000000000000 then
+  begin
     if zn = 1 then
       rez := a + b;
     if zn = 2 then
@@ -346,6 +402,13 @@ begin
       if B <> 0 then
         rez := a / b;
     a := rez;
+    end else
+    begin
+  Pole.Text :='Переполнение';
+  lockkeys();
+  per:=1;
+  zn:=0;
+  end;
     if (b = 0) and (zn = 4) then
     begin
       Pole.Text := 'Деление на 0 невозможно';
@@ -415,7 +478,7 @@ end;
 procedure TFCalc.ResultClick(Sender: TObject);
 begin
   h := 0;
-  if (Pole.Text = 'Деление на 0 невозможно') or (Pole.Text = 'Неверные данные') then
+  if (Pole.Text = 'Деление на 0 невозможно') or (Pole.Text = 'Неверные данные') or (Pole.Text = 'Переполнение') then
   begin
     Pole.Text := FloatToStr(0);
     unlockKeys();
@@ -436,6 +499,8 @@ begin
   if zn > 0 then
   begin
     b := StrToFloat(Pole.Text);
+    if StrToFloat(Pole.Text)<=100000000000000 then
+  begin
     if zn = 1 then
       rez := a + b;
     if zn = 2 then
@@ -446,6 +511,12 @@ begin
       if B <> 0 then
         rez := a / b;
     a := rez;
+    end else
+    begin
+  Pole.Text :='Переполнение';
+  lockkeys();
+  per:=1;
+  end;
     if (b = 0) and (zn = 4) then
     begin
       Pole.Text := 'Деление на 0 невозможно';
@@ -498,6 +569,21 @@ begin
       Pole.Text := Pole.Text + (',');
   end;
   per := 0;
+end;
+
+procedure TFCalc.SqareClick(Sender: TObject);
+begin
+  if StrToFloat(Pole.Text)<=100000000000000 then
+  begin
+  Pole.Text := FloatToStr(StrToFloat(Pole.Text)*StrToFloat(Pole.Text));
+  per:=1;
+  end
+  else
+  begin
+  Pole.Text :='Переполнение';
+  lockkeys();
+  per:=1;
+  end;
 end;
 
 end.
